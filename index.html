@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mithra Khanth S | Cybersecurity Analyst & Penetration Testing Portfolio</title>
+  <meta name="description" content="Portfolio of Mithra Khanth S - Security Analyst, Web Application Penetration Testing & Application Security Specialist. Certified ISC2 CC, Cisco Ethical Hacker, Qualys VMDR." />
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- Three.js and GSAP libraries (local with CDN fallback) -->
+  <script src="vendor/three.min.js" onerror="this.src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js'"></script>
+  <script src="vendor/gsap.min.js" onerror="this.src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js'"></script>
+  <script src="vendor/ScrollTrigger.min.js" onerror="this.src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js'"></script>
+</head>
+<body class="defcon-5">
+  <!-- 3D WebGL Canvas Layer -->
+  <div id="webgl-canvas-container"></div>
+  <div class="crt-overlay"></div>
+
+  <!-- Reading Progress Bar -->
+  <div id="scroll-progress-bar"></div>
+
+  <!-- Top Tactical HUD Navigation Bar -->
+  <header class="tactical-hud">
+    <div class="hud-left">
+      <a href="#hero" class="hud-brand">
+        <span>MITHRA KHANTH</span>
+        <span class="brand-badge">SEC_OPS</span>
+      </a>
+      <div class="hud-pill">
+        <span class="pulse-dot"></span>
+        <span id="hud-ping">14ms</span>
+        <span style="color:var(--text-dim);">|</span>
+        <span id="hud-status" style="color:var(--emerald);">ENCRYPTED [TLS 1.3]</span>
+      </div>
+    </div>
+
+    <nav class="hud-center">
+      <ul class="nav-links">
+        <li><a href="#about" class="nav-link">// 01. PROFILE</a></li>
+        <li><a href="#skills" class="nav-link">// 02. ARSENAL</a></li>
+        <li><a href="#vuln-lab" class="nav-link">// 03. LAB</a></li>
+        <li><a href="#experience" class="nav-link">// 04. OPS</a></li>
+        <li><a href="#projects" class="nav-link">// 05. VAULT</a></li>
+        <li><a href="#certifications" class="nav-link">// 06. CERTS</a></li>
+        <li><a href="#leadership" class="nav-link">// 07. LEADERSHIP</a></li>
+        <li><a href="#contact" class="nav-link">// 08. COMMS</a></li>
+      </ul>
+    </nav>
+
+    <div class="hud-right">
+      <!-- DEFCON Selector -->
+      <div class="defcon-selector" title="Switch Defensive Threat Level">
+        <button class="defcon-pill active" data-defcon="5">DEF 5</button>
+        <button class="defcon-pill" data-defcon="3">DEF 3</button>
+        <button class="defcon-pill" data-defcon="1">DEF 1</button>
+      </div>
+
+      <!-- Live Clock -->
+      <div class="hud-pill" id="hud-clock">00:00:00 UTC</div>
+
+      <!-- Web Audio SFX Toggle -->
+      <button class="audio-btn active" id="audio-toggle-btn" title="Toggle Cyber Audio Synthesizer">
+        <span class="sound-bar"></span>
+        <span class="sound-bar"></span>
+        <span class="sound-bar"></span>
+        <span class="sound-bar"></span>
+      </button>
+
+      <!-- Terminal Trigger -->
+      <button class="cyber-btn trigger-terminal" title="Launch Interactive Cyber Shell">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>
+        <span>CLI [~]</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content Layer -->
+  <main class="content-layer">
+
+    <!-- HERO SECTION (BALANCED 2-COLUMN WITH TELEMETRY HUD) -->
+    <section id="hero" class="hero-section">
+      <div class="container hero-grid">
+        <!-- Left: Headline & Bio -->
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="pulse-dot"></span>
+            SECURITY ANALYST // WEB APP PENETRATION TESTER
+          </div>
+          <h1 class="hero-name">MITHRA KHANTH S</h1>
+          <div class="hero-role">&gt; Web App Penetration Testing | Application Security | Qualys VMDR</div>
+          <p class="hero-bio">
+            Protecting mission-critical web applications and distributed architectures through offensive security assessments, manual & automated vulnerability management, and OWASP Top 10 root-cause remediation. Backed by 4 years of hands-on software development.
+          </p>
+          <div class="hero-actions">
+            <button class="cyber-btn trigger-terminal">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              <span>LAUNCH TERMINAL [CLI]</span>
+            </button>
+            <a href="#vuln-lab" class="cyber-btn emerald-btn">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+              <span>TEST OWASP LAB</span>
+            </a>
+            <a href="#projects" class="cyber-btn outline-btn">
+              <span>EXPLORE VAULT</span>
+            </a>
+            <button class="cyber-btn outline-btn" onclick="window.print()" title="Print or Save PDF Resume">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+              <span>PRINT CV</span>
+            </button>
+          </div>
+          <div class="hero-metrics">
+            <div class="metric-card">
+              <span class="metric-num">4+</span>
+              <span class="metric-label">YEARS DEV & ARCHITECTURE</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-num">OWASP</span>
+              <span class="metric-label">TOP 10 SPECIALIST</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-num">4x</span>
+              <span class="metric-label">INDUSTRY CERTIFIED</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-num">100+</span>
+              <span class="metric-label">STUDENT PLACEMENTS</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Cyber Portrait Hologram & SOC Telemetry -->
+        <div class="hero-right-col">
+          <!-- Cyber Holographic Portrait Card -->
+          <div class="hero-portrait-card">
+            <div class="portrait-frame">
+              <div class="portrait-scanline"></div>
+              <img src="assets/mithrakhanth.jpg" alt="Mithra Khanth S - Security Analyst" class="portrait-img" />
+            </div>
+            <div class="portrait-meta">
+              <div>
+                <div class="portrait-name">MITHRA KHANTH S</div>
+                <div style="font-family:var(--font-code); font-size:0.68rem; color:var(--cyan);">SEC_ID // MK-93429 • VERIFIED ANALYST</div>
+              </div>
+              <div class="portrait-status">
+                <span class="pulse-dot"></span>
+                <span>SOC ONLINE</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Live SOC Telemetry HUD Box -->
+          <div class="hero-soc-card">
+            <div class="hero-soc-header">
+              <span class="hero-soc-title">// ACTIVE_SOC_TELEMETRY</span>
+              <span class="brand-badge" style="color:var(--emerald);">SYS_HARDENED</span>
+            </div>
+            <div class="telemetry-row">
+              <span class="telemetry-label">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                Vulnerability Remediation SLA
+              </span>
+              <span class="telemetry-val" style="color:var(--emerald);">98.4% On-Target</span>
+            </div>
+            <div class="telemetry-row">
+              <span class="telemetry-label">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                Enterprise Scanner Engine
+              </span>
+              <span class="telemetry-val" style="color:var(--cyan);">Qualys VMDR [Active]</span>
+            </div>
+            <div class="telemetry-row">
+              <span class="telemetry-label">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                OWASP Benchmark Coverage
+              </span>
+              <span class="telemetry-val" style="color:var(--emerald);">10 / 10 Categories</span>
+            </div>
+            <div class="telemetry-row">
+              <span class="telemetry-label">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                Encryption Protocol
+              </span>
+              <span class="telemetry-val">TLS 1.3 / AES-256</span>
+            </div>
+            <div class="telemetry-row">
+              <span class="telemetry-label">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                Current Base / Relocation
+              </span>
+              <span class="telemetry-val" style="color:var(--cyan);">Coimbatore &rarr; Kerala</span>
+            </div>
+
+            <div class="soc-quick-trigger">
+              <button class="cyber-btn" style="flex:1; justify-content:center; padding:0.5rem 0.8rem;" onclick="if(window.cyberScene) window.cyberScene.triggerEMP();">
+                <span>TRIGGER EMP PULSE</span>
+              </button>
+              <button class="cyber-btn emerald-btn trigger-terminal" style="flex:1; justify-content:center; padding:0.5rem 0.8rem;">
+                <span>QUICK RECON</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 1: PROFILE & CORE SPECIALIZATION -->
+    <section id="about" class="section-padding">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">// 01. PROFILE & THREAT POSTURE</div>
+          <h2 class="section-title">ENGINEERING DEFENSE & OFFENSE</h2>
+          <p class="section-subtitle">
+            A proactive security analyst specializing in identifying, exploiting, and remediating high-risk vulnerabilities across modern web architectures, mobile packages, and APIs.
+          </p>
+        </div>
+
+        <div class="posture-grid">
+          <!-- Pillar 1 -->
+          <div class="posture-panel">
+            <div class="posture-panel-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            </div>
+            <h3>Offensive Penetration Testing</h3>
+            <p>
+              Simulating adversary attack chains using manual and automated techniques aligned with the <strong>OWASP Top 10, WSTG, and PTES</strong>. Uncovering logic flaws, auth bypasses, and access control breakdowns.
+            </p>
+            <ul class="posture-list">
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>In-Depth Web Pentesting:</strong> SQLi, XSS, CSRF, IDOR, SSRF, and file upload flaws.</span>
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Mobile & APK Auditing:</strong> Static/dynamic reverse engineering with Jadx, ADB, and MobSF.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Pillar 2 -->
+          <div class="posture-panel">
+            <div class="posture-panel-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--emerald)" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+            </div>
+            <h3>Vulnerability Management & VMDR</h3>
+            <p>
+              Enterprise-grade vulnerability lifecycle management deploying <strong>Qualys VMDR</strong>. Continuous discovery, severity ranking via <strong>CVSS v3.1</strong>, and business risk contextualization.
+            </p>
+            <ul class="posture-list">
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Qualys Certified:</strong> Managing scan policies, asset grouping, and agent telemetry.</span>
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>SLA Driven:</strong> Coordinating with developer squads to shorten MTTR on critical CVEs.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Pillar 3 -->
+          <div class="posture-panel">
+            <div class="posture-panel-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+            </div>
+            <h3>Secure Architecture & SDLC</h3>
+            <p>
+              4 years of full-stack web engineering (JavaScript, Node.js, Python, REST APIs) provides deep visibility into backend dataflows, framework vulnerabilities, and secure coding practices.
+            </p>
+            <ul class="posture-list">
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Code Remediation:</strong> Producing exact patch code and context-aware sanitization.</span>
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Automated Pipelines:</strong> n8n incident workflows and AI prompt engineering summaries.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: TECHNICAL ARSENAL & FILTER MATRIX -->
+    <section id="skills" class="section-padding">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">// 02. TECHNICAL ARSENAL</div>
+          <h2 class="section-title">SECURITY CAPABILITIES & STACK</h2>
+          <p class="section-subtitle">
+            Battle-tested toolchain spanning offensive exploitation, vulnerability auditing, cloud telemetry, and automated remediation.
+          </p>
+        </div>
+
+        <!-- Filter Tabs -->
+        <div class="filter-tabs-bar">
+          <button class="filter-tab-btn active" data-filter="all">ALL SKILLS</button>
+          <button class="filter-tab-btn" data-filter="pentest">PENETRATION TESTING</button>
+          <button class="filter-tab-btn" data-filter="vulns">OWASP TOP 10</button>
+          <button class="filter-tab-btn" data-filter="tools">SECURITY TOOLS</button>
+          <button class="filter-tab-btn" data-filter="dev">DEV & AUTOMATION</button>
+          <button class="filter-tab-btn" data-filter="standards">STANDARDS</button>
+        </div>
+
+        <div class="skills-grid">
+          <!-- Card 1 -->
+          <div class="skill-category-card" data-category="pentest">
+            <div class="skill-category-header">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="22" y1="12" x2="18" y2="12"></line><line x1="6" y1="12" x2="2" y2="12"></line><line x1="12" y1="6" x2="12" y2="2"></line><line x1="12" y1="22" x2="12" y2="18"></line></svg>
+              <h3>Web Penetration Testing</h3>
+            </div>
+            <div class="skill-tags-cloud">
+              <span class="skill-chip featured">Web App Penetration Testing</span>
+              <span class="skill-chip">Manual & Automated Testing</span>
+              <span class="skill-chip featured">Vulnerability Assessment</span>
+              <span class="skill-chip">Ethical Hacking</span>
+              <span class="skill-chip">Risk Assessment</span>
+              <span class="skill-chip">Security Posture Assessment</span>
+              <span class="skill-chip">Web Architecture Analysis</span>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="skill-category-card" data-category="vulns">
+            <div class="skill-category-header">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+              <h3>Vulnerability Specialization</h3>
+            </div>
+            <div class="skill-tags-cloud">
+              <span class="skill-chip featured">OWASP Top 10</span>
+              <span class="skill-chip featured">SQL Injection (SQLi)</span>
+              <span class="skill-chip featured">Cross-Site Scripting (XSS)</span>
+              <span class="skill-chip">CSRF</span>
+              <span class="skill-chip featured">IDOR</span>
+              <span class="skill-chip">Broken Access Control</span>
+              <span class="skill-chip">Broken Authentication</span>
+              <span class="skill-chip featured">SSRF</span>
+              <span class="skill-chip">File Upload Vulnerabilities</span>
+              <span class="skill-chip">API Security Testing</span>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="skill-category-card" data-category="tools">
+            <div class="skill-category-header">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+              <h3>Security Tools</h3>
+            </div>
+            <div class="skill-tags-cloud">
+              <span class="skill-chip featured">Burp Suite Pro</span>
+              <span class="skill-chip featured">OWASP ZAP</span>
+              <span class="skill-chip">Nikto</span>
+              <span class="skill-chip featured">Nmap</span>
+              <span class="skill-chip">Wireshark</span>
+              <span class="skill-chip featured">SQLMap</span>
+              <span class="skill-chip">Postman</span>
+              <span class="skill-chip featured">Kali Linux</span>
+              <span class="skill-chip featured">Qualys VMDR</span>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="skill-category-card" data-category="dev">
+            <div class="skill-category-header">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+              <h3>Programming & Automation</h3>
+            </div>
+            <div class="skill-tags-cloud">
+              <span class="skill-chip featured">Python</span>
+              <span class="skill-chip">Java</span>
+              <span class="skill-chip featured">JavaScript (ES6+)</span>
+              <span class="skill-chip">Node.js</span>
+              <span class="skill-chip">HTML5 / CSS3</span>
+              <span class="skill-chip">REST APIs</span>
+              <span class="skill-chip featured">n8n Workflow Automation</span>
+              <span class="skill-chip featured">AI Prompt Engineering</span>
+              <span class="skill-chip">React & Angular (Exposure)</span>
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="skill-category-card" data-category="standards">
+            <div class="skill-category-header">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+              <h3>Standards & Frameworks</h3>
+            </div>
+            <div class="skill-tags-cloud">
+              <span class="skill-chip featured">OWASP Top 10</span>
+              <span class="skill-chip featured">OWASP Testing Guide (WSTG)</span>
+              <span class="skill-chip">PTES Standard</span>
+              <span class="skill-chip featured">CVSS v3.1 Scoring</span>
+              <span class="skill-chip">CWE / CVE Mapping</span>
+              <span class="skill-chip featured">Secure SDLC</span>
+            </div>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="skill-category-card" data-category="tools">
+            <div class="skill-category-header">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+              <h3>Threat Ops & Forensics</h3>
+            </div>
+            <div class="skill-tags-cloud">
+              <span class="skill-chip featured">APK Analysis</span>
+              <span class="skill-chip">Malware Analysis</span>
+              <span class="skill-chip">Digital Forensics</span>
+              <span class="skill-chip featured">Security Operations (SOC)</span>
+              <span class="skill-chip">Network Security Basics</span>
+              <span class="skill-chip featured">Twilio Segment</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Proficiency Meter Matrix -->
+        <div class="proficiency-matrix-box">
+          <div style="font-family:var(--font-display); font-size:1.15rem; color:#fff;">
+            CORE SECURITY TOOL PROFICIENCY MATRIX
+          </div>
+          <div class="prof-grid">
+            <div class="prof-item">
+              <div class="prof-header">
+                <span>Burp Suite Pro & OWASP ZAP (Web Application Testing)</span>
+                <span style="color:var(--cyan);">95%</span>
+              </div>
+              <div class="prof-bar-track"><div class="prof-bar-fill" style="width:95%;"></div></div>
+            </div>
+            <div class="prof-item">
+              <div class="prof-header">
+                <span>Qualys VMDR (Asset Discovery, Prioritization & Remediation)</span>
+                <span style="color:var(--emerald);">92%</span>
+              </div>
+              <div class="prof-bar-track"><div class="prof-bar-fill" style="width:92%;"></div></div>
+            </div>
+            <div class="prof-item">
+              <div class="prof-header">
+                <span>Nmap, SQLMap & Network Reconnaissance</span>
+                <span style="color:var(--cyan);">90%</span>
+              </div>
+              <div class="prof-bar-track"><div class="prof-bar-fill" style="width:90%;"></div></div>
+            </div>
+            <div class="prof-item">
+              <div class="prof-header">
+                <span>Python & Security Scripting / Automation</span>
+                <span style="color:var(--emerald);">88%</span>
+              </div>
+              <div class="prof-bar-track"><div class="prof-bar-fill" style="width:88%;"></div></div>
+            </div>
+            <div class="prof-item">
+              <div class="prof-header">
+                <span>Web Architecture & APIs (JavaScript, Node.js, REST)</span>
+                <span style="color:var(--cyan);">90%</span>
+              </div>
+              <div class="prof-bar-track"><div class="prof-bar-fill" style="width:90%;"></div></div>
+            </div>
+            <div class="prof-item">
+              <div class="prof-header">
+                <span>CVSS v3.1 Scoring & Threat Assessment Modeling</span>
+                <span style="color:var(--emerald);">94%</span>
+              </div>
+              <div class="prof-bar-track"><div class="prof-bar-fill" style="width:94%;"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: INTERACTIVE OWASP LAB -->
+    <section id="vuln-lab" class="section-padding">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">// 03. INTERACTIVE LAB</div>
+          <h2 class="section-title">OWASP EXPLOIT & REMEDIATION LAB</h2>
+          <p class="section-subtitle">
+            Simulate real-world penetration testing vectors. Inspect live CVSS 3.1 severity metrics, attack payloads, and hardened code remediation.
+          </p>
+        </div>
+
+        <div class="lab-container">
+          <div class="vuln-selector-bar">
+            <button class="vuln-selector-btn active" data-vuln="sqli">&gt; SQL INJECTION (SQLi)</button>
+            <button class="vuln-selector-btn" data-vuln="xss">&gt; STORED XSS</button>
+            <button class="vuln-selector-btn" data-vuln="idor">&gt; IDOR / ACCESS CONTROL</button>
+            <button class="vuln-selector-btn" data-vuln="ssrf">&gt; SSRF / CLOUD METADATA</button>
+            <button class="vuln-selector-btn" data-vuln="brokenauth">&gt; BROKEN AUTH & MFA</button>
+          </div>
+
+          <div class="vuln-details-grid">
+            <div>
+              <div class="vuln-header-meta">
+                <span id="vuln-owasp" class="brand-badge">OWASP A03:2021</span>
+                <div class="cvss-score-badge">
+                  <span class="score-label">CVSS v3.1</span>
+                  <span id="vuln-score" class="score-val">9.8</span>
+                  <span id="vuln-severity" class="badge">CRITICAL</span>
+                </div>
+              </div>
+              <h3 id="vuln-name" style="font-family:var(--font-display); font-size:1.25rem; color:#fff; margin-bottom:0.5rem;"></h3>
+              <p id="vuln-cwe" style="font-family:var(--font-code); font-size:0.8rem; color:var(--text-muted); margin-bottom:1rem;"></p>
+              
+              <div style="font-family:var(--font-code); font-size:0.75rem; color:var(--cyan); margin-bottom:0.5rem;">[CVSS 3.1 VECTOR STRING]</div>
+              <div id="vuln-vector" style="font-family:var(--font-code); font-size:0.75rem; background:rgba(0,0,0,0.4); padding:6px 10px; border-radius:4px; color:var(--text-muted); margin-bottom:1.25rem;"></div>
+
+              <div style="font-family:var(--font-code); font-size:0.75rem; color:var(--red); margin-bottom:0.5rem;">[SIMULATED ATTACK PAYLOAD]</div>
+              <div class="code-terminal-block">
+                <pre><code id="vuln-payload"></code></pre>
+              </div>
+            </div>
+
+            <div>
+              <div style="font-family:var(--font-code); font-size:0.75rem; color:var(--emerald); margin-bottom:0.5rem;">[MITHRA'S HARDENED REMEDIATION]</div>
+              <div class="code-terminal-block" style="height:250px;">
+                <pre><code id="vuln-diff"></code></pre>
+              </div>
+              <div style="margin-top:1rem;">
+                <div style="font-family:var(--font-code); font-size:0.75rem; color:var(--cyan); margin-bottom:0.4rem;">[DEFENSIVE STRATEGY]</div>
+                <p id="vuln-strategy" style="font-size:0.88rem; color:var(--text-muted); line-height:1.6;"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: PROFESSIONAL EXPERIENCE -->
+    <section id="experience" class="section-padding">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">// 04. OPERATIONAL TRACK RECORD</div>
+          <h2 class="section-title">PROFESSIONAL EXPERIENCE</h2>
+          <p class="section-subtitle">
+            Enterprise vulnerability management, continuous asset auditing, and security training across cloud and on-premises infrastructure.
+          </p>
+        </div>
+
+        <div class="experience-timeline">
+          <!-- Experience 1 -->
+          <div class="experience-card">
+            <div class="exp-header">
+              <div>
+                <h3 class="exp-role">Automation and Qualys Implementation Engineer</h3>
+                <div class="exp-company">Datadrone Inc.</div>
+              </div>
+              <span class="exp-period">March 2026 - Present</span>
+            </div>
+            <div class="exp-kpi-tags">
+              <span class="kpi-tag">Qualys VMDR Deployment</span>
+              <span class="kpi-tag">CVSS Prioritization</span>
+              <span class="kpi-tag">SLA Remediation</span>
+              <span class="kpi-tag">n8n Automation</span>
+              <span class="kpi-tag">AI Prompt Engineering</span>
+            </div>
+            <ul class="exp-bullets">
+              <li>Deploy and configure <strong>Qualys VMDR</strong> across distributed enterprise cloud and hybrid assets to maximize threat visibility and reduce attack surfaces.</li>
+              <li>Perform continuous vulnerability assessment, prioritizing remediation according to <strong>CVSS v3.1</strong> severity, exploit availability, and core business risk.</li>
+              <li>Collaborate closely with technical engineering squads to deliver crystal-clear remediation guidance and beat tight SLA targets.</li>
+              <li>Architect and maintain <strong>n8n automation pipelines</strong> for real-time security alerts, ticket synchronization, and executive digest generation using <strong>AI prompt engineering</strong>.</li>
+            </ul>
+          </div>
+
+          <!-- Experience 2 -->
+          <div class="experience-card">
+            <div class="exp-header">
+              <div>
+                <h3 class="exp-role">Web and App Developer / Cyber Security Trainer</h3>
+                <div class="exp-company">PUPE (Cyber Security Initiatives)</div>
+              </div>
+              <span class="exp-period">January 2023 - March 2026</span>
+            </div>
+            <div class="exp-kpi-tags">
+              <span class="kpi-tag">Secure Web & App Dev</span>
+              <span class="kpi-tag">2FA / MFA Hardening</span>
+              <span class="kpi-tag">OWASP Code Review</span>
+              <span class="kpi-tag">Phishing Defense Training</span>
+            </div>
+            <ul class="exp-bullets">
+              <li>Built and maintained hardened web and mobile applications using <strong>JavaScript, Python, and Java</strong>, with built-in brute-force protection, responsive UI, and OTP/SMS multi-factor verification.</li>
+              <li>Analyzed client and server JavaScript behaviors for common web injection flaws, enforcing secure coding standards throughout the development lifecycle.</li>
+              <li>Delivered hands-on cybersecurity training and simulation workshops on <strong>phishing detection</strong> and <strong>social engineering prevention</strong> for students and institutional staff.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: SECURITY PROJECTS VAULT -->
+    <section id="projects" class="section-padding">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">// 05. ARTIFACTS & CASE STUDIES</div>
+          <h2 class="section-title">SECURITY PROJECTS VAULT</h2>
+          <p class="section-subtitle">
+            Engineered solutions solving complex problems across binary reverse engineering, proactive vulnerability filtering, cryptographic frameworks, and automation.
+          </p>
+        </div>
+
+        <!-- Project Filter Bar -->
+        <div class="filter-tabs-bar">
+          <button class="filter-tab-btn active" data-project-filter="all">ALL PROJECTS (6)</button>
+          <button class="filter-tab-btn" data-project-filter="appsec">APPSEC & MOBILE</button>
+          <button class="filter-tab-btn" data-project-filter="crypto">SYSTEM & CRYPTOGRAPHY</button>
+          <button class="filter-tab-btn" data-project-filter="automation">AUTOMATION & CLOUD</button>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Project 1 -->
+          <div class="tilt-card" data-proj-cat="appsec">
+            <div class="card-glare"></div>
+            <div>
+              <div class="project-meta-bar">
+                <span class="project-id-badge">PROJECT // 01</span>
+                <span class="project-category-badge">MOBILE SECURITY</span>
+              </div>
+              <h3 class="project-title">APK Analysis Project</h3>
+              <p class="project-desc">
+                Conducted deep Android application security analysis, reverse engineering APK binaries to uncover hardcoded API secrets, insecure local storage, and exported component vulnerabilities.
+              </p>
+            </div>
+            <div>
+              <div class="project-tech-stack">
+                <span class="tech-tag">Kali Linux</span>
+                <span class="tech-tag">Jadx-GUI</span>
+                <span class="tech-tag">ADB</span>
+                <span class="tech-tag">MobSF</span>
+                <span class="tech-tag">SAST/DAST</span>
+              </div>
+              <button class="cyber-btn view-project-details" data-project="apk">VIEW CASE STUDY</button>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="tilt-card" data-proj-cat="appsec">
+            <div class="card-glare"></div>
+            <div>
+              <div class="project-meta-bar">
+                <span class="project-id-badge">PROJECT // 02</span>
+                <span class="project-category-badge">APPSEC ENGINE</span>
+              </div>
+              <h3 class="project-title">Vulnerability-Aware Chat App</h3>
+              <p class="project-desc">
+                Real-time conversational messaging engine equipped with inline threat detection that flags risky URLs, malicious payloads, and phishing links before delivery.
+              </p>
+            </div>
+            <div>
+              <div class="project-tech-stack">
+                <span class="tech-tag">Node.js</span>
+                <span class="tech-tag">WebSockets</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">OWASP ZAP API</span>
+                <span class="tech-tag">Heuristic Scan</span>
+              </div>
+              <button class="cyber-btn view-project-details" data-project="chat">VIEW CASE STUDY</button>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="tilt-card" data-proj-cat="automation">
+            <div class="card-glare"></div>
+            <div>
+              <div class="project-meta-bar">
+                <span class="project-id-badge">PROJECT // 03</span>
+                <span class="project-category-badge">HEALTHCARE AUTH</span>
+              </div>
+              <h3 class="project-title">Secure Hospital Web Portal</h3>
+              <p class="project-desc">
+                HIPAA-conscious healthcare application with 2-step verification, role-based access control (RBAC), and Twilio Segment integration for authenticated medical record dispatch.
+              </p>
+            </div>
+            <div>
+              <div class="project-tech-stack">
+                <span class="tech-tag">Twilio Segment</span>
+                <span class="tech-tag">2FA / MFA</span>
+                <span class="tech-tag">RBAC</span>
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">REST APIs</span>
+              </div>
+              <button class="cyber-btn view-project-details" data-project="hospital">VIEW CASE STUDY</button>
+            </div>
+          </div>
+
+          <!-- Project 4 -->
+          <div class="tilt-card" data-proj-cat="crypto">
+            <div class="card-glare"></div>
+            <div>
+              <div class="project-meta-bar">
+                <span class="project-id-badge">PROJECT // 04</span>
+                <span class="project-category-badge">ENDPOINT AUDIT</span>
+              </div>
+              <h3 class="project-title">File Integrity Monitoring (FIM) Tool</h3>
+              <p class="project-desc">
+                Automated daemon for real-time endpoint file auditing. Leverages cryptographic hashing (SHA-256) to instantly alert on unauthorized modifications or malicious rootkit tampering.
+              </p>
+            </div>
+            <div>
+              <div class="project-tech-stack">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">SHA-256</span>
+                <span class="tech-tag">OS Auditing</span>
+                <span class="tech-tag">SQLite</span>
+                <span class="tech-tag">Real-Time Alerts</span>
+              </div>
+              <button class="cyber-btn view-project-details" data-project="fim">VIEW CASE STUDY</button>
+            </div>
+          </div>
+
+          <!-- Project 5 -->
+          <div class="tilt-card" data-proj-cat="crypto">
+            <div class="card-glare"></div>
+            <div>
+              <div class="project-meta-bar">
+                <span class="project-id-badge">PROJECT // 05</span>
+                <span class="project-category-badge">CRYPTOGRAPHY</span>
+              </div>
+              <h3 class="project-title">Hybrid Cryptography Framework</h3>
+              <p class="project-desc">
+                Dual-tier cryptographic encryption framework marrying AES-256 speed for massive payload encryption with RSA-4096 key encapsulation for bulletproof transit security.
+              </p>
+            </div>
+            <div>
+              <div class="project-tech-stack">
+                <span class="tech-tag">AES-256 (GCM)</span>
+                <span class="tech-tag">RSA-4096</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">PBKDF2</span>
+                <span class="tech-tag">Non-Repudiation</span>
+              </div>
+              <button class="cyber-btn view-project-details" data-project="crypto">VIEW CASE STUDY</button>
+            </div>
+          </div>
+
+          <!-- Project 6 -->
+          <div class="tilt-card" data-proj-cat="automation">
+            <div class="card-glare"></div>
+            <div>
+              <div class="project-meta-bar">
+                <span class="project-id-badge">PROJECT // 06</span>
+                <span class="project-category-badge">ENTERPRISE AUTOMATION</span>
+              </div>
+              <h3 class="project-title">Automated Business Workflows (n8n)</h3>
+              <p class="project-desc">
+                High-availability autonomous pipeline orchestrating security telemetry, order alerts, daily inventory reports, and WhatsApp/Email lead capture with AI-generated summaries.
+              </p>
+            </div>
+            <div>
+              <div class="project-tech-stack">
+                <span class="tech-tag">n8n Automation</span>
+                <span class="tech-tag">AI Prompting</span>
+                <span class="tech-tag">WhatsApp API</span>
+                <span class="tech-tag">Webhooks</span>
+                <span class="tech-tag">REST</span>
+              </div>
+              <button class="cyber-btn view-project-details" data-project="n8n">VIEW CASE STUDY</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: CERTIFICATIONS & EDUCATION -->
+    <section id="certifications" class="section-padding">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">// 06. ACCREDITATIONS & EDUCATION</div>
+          <h2 class="section-title">CERTIFIED SECURITY CREDENTIALS</h2>
+          <p class="section-subtitle">
+            Internationally verified credentials validating ethical hacking, cyber defense governance, vulnerability management, and customer data systems.
+          </p>
+        </div>
+
+        <div class="certs-grid">
+          <!-- Cert 1 -->
+          <div class="cert-card">
+            <div class="cert-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+            </div>
+            <h3 class="cert-title">Certified in Cybersecurity (CC)</h3>
+            <div class="cert-issuer">ISC2 - Certified</div>
+            <p class="cert-desc">Foundational mastery across security operations, incident response, network concepts, access control, and risk management.</p>
+          </div>
+
+          <!-- Cert 2 -->
+          <div class="cert-card">
+            <div class="cert-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            </div>
+            <h3 class="cert-title">Cisco Ethical Hacker</h3>
+            <div class="cert-issuer">Cisco Networking Academy</div>
+            <p class="cert-desc">Offensive security methodology, reconnaissance, vulnerability scanning, exploitation techniques, and defensive hardening.</p>
+          </div>
+
+          <!-- Cert 3 -->
+          <div class="cert-card">
+            <div class="cert-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg>
+            </div>
+            <h3 class="cert-title">Certified Specialist (VMDR)</h3>
+            <div class="cert-issuer">Qualys - Certified</div>
+            <p class="cert-desc">Continuous asset inventory discovery, vulnerability assessment, prioritization by business impact, and remediation tracking.</p>
+          </div>
+
+          <!-- Cert 4 -->
+          <div class="cert-card">
+            <div class="cert-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+            </div>
+            <h3 class="cert-title">Twilio Segment Certified</h3>
+            <div class="cert-issuer">Twilio - Certified</div>
+            <p class="cert-desc">Customer Data Platform (CDP) implementation, real-time event streaming, security filtering, and compliance instrumentation.</p>
+          </div>
+        </div>
+
+        <!-- Academic Degree -->
+        <div class="education-box">
+          <div>
+            <div class="edu-degree">B.E. - Cyber Security Engineering</div>
+            <div class="edu-college">Park College of Engineering and Technology, Coimbatore</div>
+          </div>
+          <div class="edu-year">2023 - 2027</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7: LEADERSHIP & SOFT SKILLS -->
+    <section id="leadership" class="section-padding">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">// 07. LEADERSHIP & CORE COMPETENCIES</div>
+          <h2 class="section-title">LEADERSHIP & COLLABORATION</h2>
+          <p class="section-subtitle">
+            Demonstrated institutional leadership, placement coordination, structured communication, and technical mentoring.
+          </p>
+        </div>
+
+        <div class="leadership-grid">
+          <!-- College Head Coordinator -->
+          <div class="leadership-card">
+            <div class="posture-panel-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            </div>
+            <h3>College Head Coordinator</h3>
+            <p>
+              Appointed as Head Coordinator for campus placement operations and corporate technical relations. Managed end-to-end event execution, company liaison, candidate readiness workshops, and recruitment drives.
+            </p>
+            <div class="coordinator-metrics">
+              <div class="coord-stat">
+                <div class="coord-num">50+</div>
+                <div class="coord-label">PLACEMENT EVENTS MANAGED</div>
+              </div>
+              <div class="coord-stat">
+                <div class="coord-num">100+</div>
+                <div class="coord-label">STUDENT PLACEMENTS SUPPORTED</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Professional Soft Skills -->
+          <div class="leadership-card">
+            <h3>Core Competencies</h3>
+            <div class="soft-skills-cloud">
+              <div class="soft-skill-row">
+                <span class="soft-skill-name">Accountability & Ownership</span>
+                <span class="soft-skill-badge">EXCELLENT</span>
+              </div>
+              <div class="soft-skill-row">
+                <span class="soft-skill-name">Written & Oral Communication</span>
+                <span class="soft-skill-badge">EXCELLENT</span>
+              </div>
+              <div class="soft-skill-row">
+                <span class="soft-skill-name">Analytical & Root-Cause Thinking</span>
+                <span class="soft-skill-badge">ADVANCED</span>
+              </div>
+              <div class="soft-skill-row">
+                <span class="soft-skill-name">Adaptability & Fast Learner</span>
+                <span class="soft-skill-badge">AGILE</span>
+              </div>
+              <div class="soft-skill-row">
+                <span class="soft-skill-name">Languages: Tamil & English</span>
+                <span class="soft-skill-badge">FLUENT</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 8: CONTACT & TRANSMISSION -->
+    <section id="contact" class="section-padding">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">// 08. SECURE CHANNELS</div>
+          <h2 class="section-title">COMMUNICATION & COORDINATES</h2>
+          <p class="section-subtitle">
+            Initiate contact for security analyst roles, penetration testing consultations, or technical leadership.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-info-panel">
+            <!-- Direct WhatsApp Transmission Card -->
+            <a href="https://wa.me/919342915874?text=Hello%20Mithra,%20I%20reviewed%20your%20Cybersecurity%20Portfolio%20and%20would%20like%20to%20connect%20regarding%20a%20Security%20Role%20/%20Pentesting%20Engagement." target="_blank" rel="noopener noreferrer" class="contact-channel-card whatsapp-btn">
+              <div class="contact-icon" style="background:rgba(37,211,102,0.18); color:#25d366; border-color:#25d366;">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+              </div>
+              <div>
+                <div class="channel-label" style="color:#25d366; font-weight:700;">WHATSAPP DIRECT TRANSMISSION</div>
+                <div class="channel-val" style="color:#fff;">+91 93429 15874</div>
+                <div style="font-size:0.75rem; color:#25d366; margin-top:2px;">[INSTANT DISPATCH // CLICK TO CHAT NOW]</div>
+              </div>
+            </a>
+
+            <!-- Email -->
+            <a href="mailto:s.mithrakhanth@gmail.com" class="contact-channel-card">
+              <div class="contact-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              </div>
+              <div>
+                <div class="channel-label">EMAIL TRANSMISSION</div>
+                <div class="channel-val">s.mithrakhanth@gmail.com</div>
+              </div>
+            </a>
+
+            <!-- Phone -->
+            <a href="tel:+919342915874" class="contact-channel-card">
+              <div class="contact-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              </div>
+              <div>
+                <div class="channel-label">SECURE VOICE LINE</div>
+                <div class="channel-val">+91 93429 15874</div>
+              </div>
+            </a>
+
+            <!-- LinkedIn -->
+            <a href="https://linkedin.com/in/mithrakhanth-s" target="_blank" rel="noopener noreferrer" class="contact-channel-card">
+              <div class="contact-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+              </div>
+              <div>
+                <div class="channel-label">PROFESSIONAL NETWORK</div>
+                <div class="channel-val">linkedin.com/in/mithrakhanth-s</div>
+              </div>
+            </a>
+
+            <!-- Location -->
+            <div class="contact-channel-card">
+              <div class="contact-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              </div>
+              <div>
+                <div class="channel-label">CURRENT COORDINATES</div>
+                <div class="channel-val">Coimbatore, Tamil Nadu, India</div>
+                <div style="font-size:0.75rem; color:var(--emerald); margin-top:2px;">[READY TO RELOCATE WITHIN KERALA]</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Secure Dispatch Form (Directly Dispatches to WhatsApp) -->
+          <div class="secure-message-box">
+            <h3 style="font-family:var(--font-display); font-size:1.2rem; color:#fff; margin-bottom:0.4rem;">
+              DISPATCH SECURE TRANSMISSION
+            </h3>
+            <p style="font-size:0.85rem; color:var(--emerald); margin-bottom:1.5rem; font-family:var(--font-code);">
+              &gt; Direct WhatsApp Gateway: +91 93429 15874
+            </p>
+            <form id="secure-dispatch-form" onsubmit="dispatchToWhatsApp(event)">
+              <div class="form-group">
+                <label class="form-label">&gt; SENDER_IDENTITY / ORG</label>
+                <input type="text" id="dispatch-sender" class="cyber-input" placeholder="e.g., Enterprise Security Lead" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label">&gt; RETURN_ADDRESS (EMAIL)</label>
+                <input type="email" id="dispatch-email" class="cyber-input" placeholder="name@company.com" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label">&gt; TRANSMISSION_PAYLOAD</label>
+                <textarea id="dispatch-payload" class="cyber-textarea" placeholder="Enter role requirements, assessment scope, or inquiry..." required></textarea>
+              </div>
+              <button type="submit" id="dispatch-btn" class="cyber-btn emerald-btn" style="width:100%; justify-content:center;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                <span>TRANSMIT VIA WHATSAPP (+91 93429 15874)</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="tactical-footer">
+      <div class="container footer-content">
+        <div style="font-family:var(--font-display); font-size:1.1rem; color:var(--cyan); letter-spacing:0.05em;">
+          MITHRA KHANTH S // SECURITY ANALYST & APPLICATION SECURITY
+        </div>
+        <p class="footer-meta">
+          [DEFENSE-IN-DEPTH ARCHITECTURE] • ENCRYPTED TRANSMISSION • POWERED BY THREE.JS WEBGL & CYBERNETIC PROTOCOLS
+        </p>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- INTERACTIVE CLI TERMINAL MODAL -->
+  <div id="terminal-modal" class="terminal-modal">
+    <div class="terminal-window">
+      <div class="terminal-topbar">
+        <div class="terminal-controls">
+          <span class="term-btn red" id="terminal-close-btn" title="Close CLI"></span>
+          <span class="term-btn yellow"></span>
+          <span class="term-btn green"></span>
+        </div>
+        <div class="terminal-title">MITHRA_KHANTH_OS // SECURITY_COMMAND_CONSOLE (v4.2.1)</div>
+        <div style="font-family:var(--font-code); font-size:0.7rem; color:var(--text-dim);">ESC to exit</div>
+      </div>
+      <div class="terminal-body" id="terminal-output"></div>
+      <div class="terminal-input-row">
+        <span class="terminal-prompt-prefix">guest@mithrakhanth-sec:~$</span>
+        <input type="text" id="terminal-input" class="terminal-cmd-input" autocomplete="off" spellcheck="false" placeholder="Type 'help'..." />
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECT DETAILS MODAL -->
+  <div id="project-modal" class="modal-overlay">
+    <div class="modal-dialog">
+      <button class="modal-close" id="modal-close-btn">&times;</button>
+      <h3 id="modal-project-title" style="font-family:var(--font-display); font-size:1.4rem; color:#fff; margin-bottom:0.4rem;"></h3>
+      <div id="modal-project-content"></div>
+    </div>
+  </div>
+
+  <!-- Application Scripts -->
+  <script src="js/audio.js"></script>
+  <script src="js/three-scene.js"></script>
+  <script src="js/terminal.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
