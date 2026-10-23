@@ -15,6 +15,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   initLiveTelemetry();
   initScrollProgressAndNav();
+  initMobileNav();
   initFilterTabs();
   initAudioControls();
   initDefconControls();
@@ -24,6 +25,45 @@ document.addEventListener('DOMContentLoaded', () => {
   initSmoothScroll();
   initSoundEffectsOnHover();
 });
+
+/* ==========================================================================
+   0. Mobile Navigation Drawer Controller
+   ========================================================================== */
+function initMobileNav() {
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  const drawer = document.getElementById('mobile-nav-drawer');
+  const overlay = document.getElementById('mobile-nav-overlay');
+  const closeBtn = document.getElementById('mobile-nav-close');
+  const drawerLinks = document.querySelectorAll('.mobile-nav-link');
+
+  function openDrawer() {
+    if (drawer && overlay) {
+      drawer.classList.add('active');
+      overlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      if (window.cyberAudio) window.cyberAudio.playClick();
+    }
+  }
+
+  function closeDrawer() {
+    if (drawer && overlay) {
+      drawer.classList.remove('active');
+      overlay.classList.remove('active');
+      document.body.style.overflow = '';
+      if (window.cyberAudio) window.cyberAudio.playClick();
+    }
+  }
+
+  if (menuBtn) menuBtn.addEventListener('click', openDrawer);
+  if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+  if (overlay) overlay.addEventListener('click', closeDrawer);
+
+  drawerLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      closeDrawer();
+    });
+  });
+}
 
 /* ==========================================================================
    1. Live HUD Telemetry & Clocks

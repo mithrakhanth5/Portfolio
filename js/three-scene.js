@@ -511,65 +511,64 @@ class CyberScene {
     this.mouse.x += (this.mouse.targetX - this.mouse.x) * 0.05;
     this.mouse.y += (this.mouse.targetY - this.mouse.y) * 0.05;
 
-    // Define 6 key camera positions for each section based on scroll progress:
-    // 0: Hero, 0.2: About/Summary, 0.4: Skills, 0.6: Experience, 0.8: Projects, 1.0: Certs/Terminal
+    const isMobile = window.innerWidth <= 960;
     const sp = this.scrollProgress;
 
     let targetCamX = 0;
     let targetCamY = 1.2;
-    let targetCamZ = 16;
+    let targetCamZ = isMobile ? 18 : 16;
     let globePosX = 0;
     let globePosY = 0;
-    let globeScale = 1.0;
+    let globeScale = isMobile ? 0.75 : 1.0;
 
     if (sp < 0.18) {
-      // HERO: Majestic center view
-      targetCamX = this.mouse.x * 2.0;
-      targetCamY = 1.5 + this.mouse.y * 1.5;
-      targetCamZ = 16;
-      globePosX = window.innerWidth > 960 ? 3.2 : 0;
-      globePosY = window.innerWidth > 960 ? 0.2 : 1.5;
-      globeScale = window.innerWidth > 960 ? 1.05 : 0.78;
+      // HERO: Center view
+      targetCamX = this.mouse.x * (isMobile ? 0.8 : 2.0);
+      targetCamY = 1.5 + this.mouse.y * (isMobile ? 0.8 : 1.5);
+      targetCamZ = isMobile ? 18 : 16;
+      globePosX = isMobile ? 0 : 3.2;
+      globePosY = isMobile ? 0.5 : 0.2;
+      globeScale = isMobile ? 0.72 : 1.05;
     } else if (sp < 0.38) {
-      // ABOUT / POSTURE: Globe moves left, zoomed in to show core vulnerability lattice
-      targetCamX = -2.0 + this.mouse.x * 1.5;
-      targetCamY = 0.5 + this.mouse.y * 1.2;
-      targetCamZ = 13;
-      globePosX = -3.8;
-      globePosY = 0.2;
-      globeScale = 1.25;
+      // ABOUT / POSTURE
+      targetCamX = (isMobile ? 0 : -2.0) + this.mouse.x * 1.2;
+      targetCamY = 0.5 + this.mouse.y * 1.0;
+      targetCamZ = isMobile ? 19 : 13;
+      globePosX = isMobile ? 0 : -3.8;
+      globePosY = isMobile ? -0.5 : 0.2;
+      globeScale = isMobile ? 0.75 : 1.25;
     } else if (sp < 0.58) {
-      // SKILLS: Overhead tactical command angle
-      targetCamX = this.mouse.x * 2.5;
-      targetCamY = 5.0 + this.mouse.y * 1.5;
-      targetCamZ = 17;
+      // SKILLS
+      targetCamX = this.mouse.x * 1.5;
+      targetCamY = (isMobile ? 3.0 : 5.0) + this.mouse.y * 1.2;
+      targetCamZ = isMobile ? 19 : 17;
       globePosX = 0;
       globePosY = -2.0;
-      globeScale = 1.35;
+      globeScale = isMobile ? 0.8 : 1.35;
     } else if (sp < 0.78) {
-      // EXPERIENCE: Side corridor telemetry tracking
-      targetCamX = 3.5 + this.mouse.x * 1.5;
+      // EXPERIENCE
+      targetCamX = (isMobile ? 0 : 3.5) + this.mouse.x * 1.2;
       targetCamY = 0.8 + this.mouse.y * 1.0;
-      targetCamZ = 14;
-      globePosX = 4.0;
+      targetCamZ = isMobile ? 18 : 14;
+      globePosX = isMobile ? 0 : 4.0;
       globePosY = 0;
-      globeScale = 1.1;
+      globeScale = isMobile ? 0.75 : 1.1;
     } else if (sp < 0.92) {
-      // PROJECTS: Dynamic elevated matrix view
-      targetCamX = -3.0 + this.mouse.x * 2.0;
-      targetCamY = 2.0 + this.mouse.y * 1.2;
-      targetCamZ = 15;
-      globePosX = -4.2;
-      globePosY = 0.5;
-      globeScale = 1.15;
+      // PROJECTS
+      targetCamX = (isMobile ? 0 : -3.0) + this.mouse.x * 1.2;
+      targetCamY = 2.0 + this.mouse.y * 1.0;
+      targetCamZ = isMobile ? 18 : 15;
+      globePosX = isMobile ? 0 : -4.2;
+      globePosY = isMobile ? 0 : 0.5;
+      globeScale = isMobile ? 0.75 : 1.15;
     } else {
-      // CERTS & TERMINAL: Deep hacker command console mode
-      targetCamX = this.mouse.x * 1.5;
-      targetCamY = -1.0 + this.mouse.y * 1.0;
-      targetCamZ = 14;
+      // CERTS & TERMINAL
+      targetCamX = this.mouse.x * 1.2;
+      targetCamY = -1.0 + this.mouse.y * 0.8;
+      targetCamZ = isMobile ? 18 : 14;
       globePosX = 0;
-      globePosY = 1.8;
-      globeScale = 0.95;
+      globePosY = isMobile ? 0.5 : 1.8;
+      globeScale = isMobile ? 0.7 : 0.95;
     }
 
     // Smooth lerping of camera & globe positions
